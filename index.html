@@ -1,80 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link href="jquery-ui.css" rel="stylesheet">
-  	<style>
-  	body{
-  		font-family: "Trebuchet MS", sans-serif;
-  		margin: 50px;
-  	}
-  	.demoHeaders {
-  		margin-top: 2em;
-  	}
-  	#dialog-link {
-  		padding: .4em 1em .4em 20px;
-  		text-decoration: none;
-  		position: relative;
-  	}
-  	#dialog-link span.ui-icon {
-  		margin: 0 5px 0 0;
-  		position: absolute;
-  		left: .2em;
-  		top: 50%;
-  		margin-top: -8px;
-  	}
-  	#icons {
-  		margin: 0;
-  		padding: 0;
-  	}
-  	#icons li {
-  		margin: 2px;
-  		position: relative;
-  		padding: 4px 0;
-  		cursor: pointer;
-  		float: left;
-  		list-style: none;
-  	}
-  	#icons span.ui-icon {
-  		float: left;
-  		margin: 0 4px;
-  	}
-  	.fakewindowcontain .ui-widget-overlay {
-  		position: absolute;
-  	}
-  	select {
-  		width: 200px;
-  	}
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tabs - jQuery Mobile Demos</title>
+	<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="../css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="../_assets/css/jqm-demos.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../_assets/js/index.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<style id="inset-tablist">
+		.tablist-left {
+			width: 25%;
+			display: inline-block;
+		}
+		.tablist-content {
+			width: 60%;
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 5%;
+		}
+	</style>
+</head>
+<body>
 
-  	</style>
-  </head>
-  <body>
-    <!-- Tabs -->
+			<div data-role="tabs" id="tabs">
+		      <div data-role="navbar">
+			    <ul>
+						<li><a href="login.html" data-ajax="false">主页</a></li>
+						<li><a href="#cn" data-ajax="false">校历（中文）</a></li>
+						<li><a href="#kr" data-ajax="false">校历（韩文）</a></li>
+						<li><a href="#bot" data-ajax="false">Kingo Bot</a></li>
+ 						<li><a href="#two" data-ajax="false">引用</a></li>
+			    </ul>
+		      </div>
+					<div id="bot" class="ui-body-d ui-content">
+		   <iframe src="https://kingo.skku.edu/chat" width="100%" height="1080"></iframe>
+		      </div>
+					<div id="kr" class="ui-body-d ui-content">
+			   <iframe src="pdf\sche2019.pdf" width="100%" height="1080"></iframe>
+		      </div>
+		      <div id="cn" class="ui-body-d ui-content">
+		        <img src="img/cn1.jpg" alt="">
+						 <img src="img/cn2.jpg" alt="">
+		      </div>
+		      <div id="two">
+		        <ul data-role="listview" data-inset="true">
+		            <li><a href="#bot">SKKU</a></li>
+		            <li><a href="#bot">SKKU</a></li>
+		            <li><a href="#bot">SKKU</a></li>
+		            <li><a href="#bot">SKKU</a></li>
+		            <li><a href="#bot">SKKU</a></li>
+		        </ul>
+						<div id="main" class="ui-body-d ui-content">
 
-    <div id="tabs">
-    	<ul>
-    		<li><a href="#tabs-1">2019年校历</a></li>
-    		<li><a href="#tabs-2">2019年校历（韩文）</a></li>
-        <li><a href="#tabs-3">2019校历韩文版（网页版）</a></li>
-        <li><a href="#tabs-5">Kingo Bot</a></li>
-    		<li><a href="#tabs-4">资料下载</a></li>
+						</div>
+		    </div>
+		</div>
 
-    	</ul>
-    	<div id="tabs-1">
-<img src="cn1.jpg" alt="">
-<img src="cn2.jpg" alt="">
 
 
-      </div>
 
 
 
 
 
-      <div id="tabs-2">
 
-<iframe src="pdf/sche2019.pdf" width="100%" height="1080px"></iframe>
 
 
 
@@ -82,168 +75,17 @@
 
 
 
-      </div>
-      <div id="tabs-3">
-<iframe src="kr.html" width="100%" height="1080px"></iframe>
 
 
 
-      </div>
-    	<div id="tabs-4">
-<iframe src="https://x1x.ink/" width="100%" height="1080px"></iframe>
 
 
 
-      </div>
-      <div id="tabs-5">
-<iframe src="https://kingo.skku.edu/chat" width="100%" height="1080px"></iframe>
 
 
 
-      </div>
-    </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <script src="external/jquery/jquery.js"></script>
-    <script src="jquery-ui.js"></script>
-    <script>
-
-    $( "#accordion" ).accordion();
-
-
-
-    var availableTags = [
-    	"ActionScript",
-    	"AppleScript",
-    	"Asp",
-    	"BASIC",
-    	"C",
-    	"C++",
-    	"Clojure",
-    	"COBOL",
-    	"ColdFusion",
-    	"Erlang",
-    	"Fortran",
-    	"Groovy",
-    	"Haskell",
-    	"Java",
-    	"JavaScript",
-    	"Lisp",
-    	"Perl",
-    	"PHP",
-    	"Python",
-    	"Ruby",
-    	"Scala",
-    	"Scheme"
-    ];
-    $( "#autocomplete" ).autocomplete({
-    	source: availableTags
-    });
-
-
-
-    $( "#button" ).button();
-    $( "#button-icon" ).button({
-    	icon: "ui-icon-gear",
-    	showLabel: false
-    });
-
-
-
-    $( "#radioset" ).buttonset();
-
-
-
-    $( "#controlgroup" ).controlgroup();
-
-
-
-    $( "#tabs" ).tabs();
-
-
-
-    $( "#dialog" ).dialog({
-    	autoOpen: false,
-    	width: 400,
-    	buttons: [
-    		{
-    			text: "Ok",
-    			click: function() {
-    				$( this ).dialog( "close" );
-    			}
-    		},
-    		{
-    			text: "Cancel",
-    			click: function() {
-    				$( this ).dialog( "close" );
-    			}
-    		}
-    	]
-    });
-
-    // Link to open the dialog
-    $( "#dialog-link" ).click(function( event ) {
-    	$( "#dialog" ).dialog( "open" );
-    	event.preventDefault();
-    });
-
-
-
-    $( "#datepicker" ).datepicker({
-    	inline: true
-    });
-
-
-
-    $( "#slider" ).slider({
-    	range: true,
-    	values: [ 17, 67 ]
-    });
-
-
-
-    $( "#progressbar" ).progressbar({
-    	value: 20
-    });
-
-
-
-    $( "#spinner" ).spinner();
-
-
-
-    $( "#menu" ).menu();
-
-
-
-    $( "#tooltip" ).tooltip();
-
-
-
-    $( "#selectmenu" ).selectmenu();
-
-
-    // Hover states on the static widgets
-    $( "#dialog-link, #icons li" ).hover(
-    	function() {
-    		$( this ).addClass( "ui-state-hover" );
-    	},
-    	function() {
-    		$( this ).removeClass( "ui-state-hover" );
-    	}
-    );
-    </script>
-  </body>
+</body>
 </html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://sugang.skku.edu/skku/login?attribute=login -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<title>수강신청</title>
+	<style>
+	body{ font: 12px "Trebuchet MS", sans-serif;}
+	input[type=checkbox], input[type=radio] { border:none !important }
+	table.tableList2 { table-layout:fixed; border-top:2px #A6D9DC solid; border-bottom:1px #CFCFCF solid; }
+	table.tableList2 th, table.tableList2 td { padding:7px 3px 3px 3px; text-align:center; font-size:9pt; }
+	table.tableList2 th { border-right:1px #F3D7D7 solid; border-bottom:1px #CFCFCF solid; color:#000000; background:#E3F2FF; }
+	table.tableList2 th.end, table.tableList2 td.end { border-right:none }
+	table.tableList2 td { border-right:1px #F0F0F0 solid; border-bottom:1px #CFCFCF dotted; vertical-align:center; }
+	table.tableList2 td.dot { text-overflow:ellipsis; overflow:hidden; white-space:nowrap; } /* 말줄임 */
+	table.tableList2 td.left { text-align:left; }
+	table.tableList2 td.right { text-align:right; }
+	table.tableList2 td img { vertical-align:middle; }
+	</style>
+    <!-- <link rel="stylesheet" href="/html/css/reset.css"> -->
+    <link rel="stylesheet" href="sub\sugang\login_new.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="sub\sugang\jquery-ui-1.9.2.custom.min.css">
+	<script language="JavaScript" src="sub\sugang\jquery-1.8.3.js"></script>
+	<script language="JavaScript" src="sub\sugang\jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="sub\sugang\jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="sub\sugang\netfunnel.js" charset="UTF-8"></script>
+	<!--[if lt IE 9]>
+    <script src="/skku/html/js/html5.js"></script>
+    <![endif]-->
+
+  </head>
+<body><div id="message" title="알림" style="display:none;font-size:9;"><table align="center"><tbody><tr><td valign="bottom"><div id="msg"></div></td></tr></tbody></table></div>
+
+
+	<div class="wrap">
+        <div class="inside">
+        	<div class="info2">&nbsp;&nbsp;&nbsp;
+	          		성균관대학교 수강신청
+	        	</div>
+
+        	<div class="form">
+
+	        	<div class="info">
+
+	        	</div>
+
+
+
+
+
+		</div>
+
+        <div class="notice">
+			<table width="99%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr>
+  <td align="left">
+	<p style="text-align:center;"><span style="font-size:16px;"><strong><font color="#0177D1">2019학년도부터 달라지는 수강신청 변경사항</font></strong></span></p>
+	<ul>
+		<li><b>재수강 제한학기 폐지</b> : 최초 수강 후 4학기 경과해도 재수강 가능(기존에는 4학기 이내 재수강)
+		</li>
+		<li><b>3수강 제한 제도 폐지</b> : 3수강 이상도 수강 가능
+		</li>
+		<li><b>수강신청기간 캠퍼스 구분 폐지</b>(자세한 사항은 아래 수강신청 일정 참고)
+		</li>
+		<li><b>수강권 매매 방지 시스템 운영</b><br>
+		 - 수강변경 및 확인기간 동안 수강정원이 가득 찬 강좌에서 수강삭제가 이뤄진 경우에는<br>
+		 &nbsp;&nbsp;<font color="crimson">임의의 시간 후 삭제된 여석이 표시</font> 됩니다. (수강정원이 남은 강좌 삭제시 해당없음)<br>
+		</li>
+		<li><b>수강변경 및 확인기간 연장</b> : 개강 후 8일까지(변경가능일은 총7일) 연장됩니다.
+		</li>
+	</ul>
+	<p style="text-align:center;"><span style="font-size:16px;"><strong><font color="#0177D1">수강신청 일반안내</font></strong></span></p>
+	<ul>
+		<!--
+		<li><font color="blue"><b><u>8. 4(금) 수강신청 시스템 점검으로 로그인이 불가합니다.</u></b></font></li>
+		-->
+		<li><b>로그인은 수강신청 시작 전에도 가능합니다.</b>
+		<!--
+			<br>
+			- 로그인 시에도 접속 순서에 따라서 로그인이 되므로, 재접속시 대기시간이 더 늘어날 수 있습니다.
+		-->
+		</li>
+		<li>이번학기 신입생은 새로운 학번으로 로그인 가능합니다.(개강 전에는 수험번호도 가능)</li>
+		<!--
+		<li>수강신청은 학기단위로 시행합니다.</li>
+		-->
+		<li>정규학기 수강신청 기간동안 등록예정학기별 대기순번제를 운영합니다.</li>
+		<li><b>수강인원 증원을 교강사에게 신청할 수 있습니다.</b><br>
+  		- 증원신청 메뉴: GLS-책가방<br>
+  		- 증원여부는 교강사가 결정하며, 증원기간 내 확정된 정원을 학사공지 게시판에 공지<br>
+  		- 수강신청기간(대기번호有): 학년별 증원인원에 따라 대기번호 순으로 수강확정<br>
+  		- 수강변경/확인기간(대기번호無): 증원인원만큼 정원이 늘어나며 수강신청 오픈시 선착순 수강신청<br>
+		</li>
+		<li><b>매크로 방지 및 다중접속 제한이 시행됩니다.</b><br>
+		 - 일정횟수 이상 클릭 또는 단기간내 과도한 클릭시 <font color="crimson">매크로 방지 시스템</font>이 실행됩니다.<br>
+		 - 한 PC에서 여러 개의 창을 띄우는 경우, PC와 모바일에서 동시에 수강신청을 진행하는 경우 등<br>
+		 &nbsp;&nbsp;<font color="crimson">다중접속이 제한</font>됩니다.
+		</li>
+		<li>수강신청 사이트 책가방 담은 강좌의 정렬 순서는 GLS [책가방] 메뉴에서 설정할 수 있습니다.</li>
+		<li><b>수강신청 모바일앱</b> : 구글 플레이스토어, 애플 앱스토어에서 '성균관대 수강신청' 검색<br>&nbsp;</li>
+			<table class="tableList2" width="540">
+				<tbody><tr>
+					<th>※ 전공핵심 100% 운영학과 유의사항</th>
+				</tr>
+				<tr>
+					<td><div style="text-align:left">
+  		- 대상학과: <font color="crimson">경영학과, 경제학과, 통계학과, 한문학과, 글로벌경제학과, 컴퓨터교육과, 의상학과,<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;화학공학/고분자공학부, 기계공학부</font><br>
+  		- 전공핵심 100%운영학과란? 전공핵심 이수학점만큼만 핵심과목을 개설하여, 졸업을 위해서는<br>
+  		&nbsp;&nbsp;개설된 핵심과목을 모두 수강해야 졸업이 가능한 학과입니다.<br>
+  		&nbsp;&nbsp;예) 경영학과 2018학번 전공핵심 이수기준은 24학점이며, 실제 연간 개설하는 핵심과목도<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8과목으로 24학점으로 운영<br>
+  		★ 위와 같은 학과 운영목적에 따라 <font color="crimson">전공핵심 100%운영학과를 전공(혹은 복수전공)하는 학생이<br>
+  		&nbsp;&nbsp;타 학과의 C/L “전공핵심” 교과목을 수강하면 이수구분이 “전공일반”으로 변경되어 인정</font>됩니다. <br>
+      &nbsp;&nbsp;※ C/L이 아닌 타 학과 교과목 이수 시 이수구분은 “선택”으로 인정됩니다(비전공 과목)
+      </div>
+					</td>
+				</tr>
+			</tbody></table>
+	</ul>
+	<p style="text-align:center;"><br>
+		<span style="font-size:16px;"><strong><font color="#0177D1">[2019-1학기 수강신청 안내]</font></strong></span></p>
+	<ul>
+		<li><b>수강신청 일정</b><br>
+		 - <u>대학원과정과 교환학생은 학사과정보다 하루 빠른 13일부터 수강신청이 시작됩니다.</u><br>
+		 - 2019학년도부터 캠퍼스를 통합하여 수강신청 진행<br>
+		 - 수강신청/수강삭제 가능시간  10:00 ~ 23:00<br>
+		 - 수강신청대상자는 재학예정학기(등록 학기 기준)를 기준으로 함 (인정학기 포함, 유급학기 제외)<br>
+		 - 등록학기수별 수강신청 일정
+		</li>
+			<table class="tableList2" width="540">
+				<tbody><tr>
+					<th width="60">구분</th>
+					<th width="120">등록예정학기수</th>
+					<th width="160">수강신청 일정</th>
+					<th>강좌 구분</th>
+				</tr>
+				<tr>
+					<td rowspan="6">학사<br>과정</td>
+					<td>3~4학기</td>
+					<td><font color="crimson">2.14.(목)</font></td>
+					<td rowspan="3">오프라인 강좌</td>
+				</tr>
+				<tr>
+					<td>5~6학기</td>
+					<td>2.15.(금)</td>
+				</tr>
+				<tr>
+					<td>7학기이상</td>
+					<td>2.18.(월)</td>
+				</tr>
+				<tr>
+					<td>3~4학기</td>
+					<td>2.19.(화)</td>
+					<td rowspan="3">온라인 + 오프라인 전체강좌</td>
+				</tr>
+				<tr>
+					<td>5학기이상</td>
+					<td>2.20.(수)</td>
+				</tr>
+				<tr>
+					<td>신/편입생, 1~2학기</td>
+					<td>2.21.(목)</td>
+				</tr>
+				<tr>
+					<td colspan="2">Inbound교환학생,<br>대학원 과정</td>
+					<td><font color="crimson">2.13.(수)</font> ~ 2.21.(목)<br>[주말,공휴일 제외]</td>
+					<td>온라인 + 오프라인 전체강좌</td>
+				</tr>
+			</tbody></table>
+		※ 신/편입생은 2019학년도 1학기 신/편입생에 해당함.<br>
+		※ 편입생은 첫학기만 신/편입생 일자에 진행하며, 두번째 학기부터는 각자 등록예정학기에 진행함.<br>
+		※ 교환학생은 수강신청 기간 중 교환학생 TO 내에서만 수강신청이 가능함.<br>
+		※ 본인 수강신청 가능일은 수강신청사이트 로그인 후 좌측 개인정보에서 확인 가능함.<br>
+		&nbsp;&nbsp;&nbsp;(개인별 일정 및 수강가능학점은 수강신청 기간 시작일 3~4일전 확정됨)<br>
+		※ 수강신청내역 삭제는 본인의 수강신청 가능일 외에도 모든 수강신청기간 중에 가능함.<br><br>
+		<li><b>수강신청 변경 및 확인 일정</b><br>
+		 - 수강신청 변경 및 확인기간에는 대기번호 없이, 선착순으로 수강신청이 진행됩니다.<br>
+		 - 수강변경기간이 개강 후 둘째 주 수요일까지 연장되어 운영됩니다.
+		</li>
+
+			<table class="tableList2" width="540">
+				<tbody><tr>
+					<th width="200">강좌 구분</th>
+					<th>수강신청 변경 및 확인 일정</th>
+				</tr>
+				<tr>
+					<td>자과캠 오프라인 강좌</td>
+					<td>3. 4.(월) 08:00 ~ 3. 6.(수) 16:59</td>
+				</tr>
+				<tr>
+					<td>인사캠 오프라인 강좌</td>
+					<td>3. 5.(화) 08:00 ~ 3. 6.(수) 16:59</td>
+				</tr>
+				<tr>
+					<td rowspan="3">온라인+ 오프라인 전체 강좌</td>
+					<td>3. 6.(수) 08:00 ~ 3. 6.(수) 16:59<br>
+					<i>※ 수강신청 불가: 3.6.(수) 17:00 ~ 3.7.(목) 07:59</i>
+					</td>
+				</tr>
+				<tr>
+					<td>3. 7.(목) 08:00 ~ 3. 8.(금) 22:59<br>
+					<i>※ 수강신청 불가: 3.8.(금) 23:00 ~ 3.12.(화) 07:59</i>
+					</td>
+				</tr>
+				<tr>
+					<td>3.12.(화) 08:00 ~ 3.13.(수) <font color="crimson">11:59</font>
+					</td>
+				</tr>
+				<tr>
+					<td>폐반 확정일</td>
+					<td>3.13.(수)</td>
+				</tr>
+				<tr>
+					<td>폐반대상학생 추가 수강신청</td>
+					<td>3.14.(목) 08:00 ~ 22:59</td>
+				</tr>
+			</tbody></table>
+		※ icampus수업은 &lt;온라인+오프라인 전체 강좌&gt;일자에 신청 및 확인 가능함<br>
+		<!--
+		※ 변경기간 중 수강신청내역 삭제는 강좌개설 캠퍼스별 수강신청 일정에만 가능함<br>
+		-->
+		※ 수강신청 확인/변경기간에는 등록예정학기별 분리되어 있던 “전공TO”가 통합되어 운영됨<br>
+		&nbsp;&nbsp;&nbsp;(교환학생 TO는 통합되지 않습니다)<br><br>
+		<li><b>기타 유의사항</b><br>
+		- 과목별 수강정원 및 대기인원, 정원증원에 대한 문의는 강좌주관 학과사무실 또는<br>&nbsp; 학사바로센터(1811-8585)로 문의하시기 바랍니다.<br>
+		- 특별TO 는 비전공생들을 대상으로, 교환학생TO 는 교환학생을 대상으로 하는 수강정원 입니다.<br>
+		- 복수전공생들은 전공TO 로 수강신청이 가능합니다.<br>
+		<!--
+		- 이번학기에 학과진입하는 경우 학기시작일 전까지 “소속전공조회”가 되지 않습니다. “전체전공조회”<br>&nbsp; 또는 “책가방” 메뉴를 이용하시기 바랍니다.<br>
+    -->
+		- 대학원생 선수과목 수강신청은 “선수신청” 버튼을 이용하시기 바랍니다.<br><br>
+		</li>
+		<li><b>교양수업 학년별 정원 배정 계획</b><br>
+		<!--
+		- 성균인성·교양·기초교육과정 수업의 정원이 아래와 같이 변경되었습니다.<br>
+    -->
+		</li>
+			<table class="tableList2" width="540">
+			<tbody><tr>
+				<th width="200" rowspan="2" colspan="3">영&nbsp;&nbsp;역</th>
+				<th width="65" rowspan="2">수강우선<br>대상</th>
+				<th colspan="4">등록예정학기수</th>
+			</tr>
+			<tr>
+				<th>3~4학기</th>
+				<th>5~6학기</th>
+				<th>7학기<br>이상</th>
+				<th>신입생<br>1~2학기</th>
+			</tr>
+			<tr>
+				<td width="35" rowspan="2">성균<br>인성</td>
+				<td colspan="2">인성</td>
+				<td>3~4학기</td>
+				<td>85 %</td>
+				<td>5 %</td>
+				<td>10 %</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td colspan="2">리더십</td>
+				<td>5학기이상</td>
+				<td>30 %</td>
+				<td>35 %</td>
+				<td>35 %</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td rowspan="6">성균<br>중점</td>
+				<td colspan="2">의사소통</td>
+				<td>신입생</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>100 %</td>
+			</tr>
+			<tr>
+				<td width="75" rowspan="2">창의와<br>소프트웨어</td>
+				<td>창의와사유</td>
+				<td>신입생</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>100 %</td>
+			</tr>
+			<tr>
+				<td>소프트웨어기초</td>
+				<td>신입생</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>100 %</td>
+			</tr>
+			<tr>
+				<td rowspan="3">글로벌</td>
+				<td>기본영어</td>
+				<td>신입생</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>100 %</td>
+			</tr>
+			<tr>
+				<td>전문영어</td>
+				<td rowspan="2">전체</td>
+				<td rowspan="2">25 %</td>
+				<td rowspan="2">25 %</td>
+				<td rowspan="2">25 %</td>
+				<td rowspan="2">25 %</td>
+			</tr>
+			<tr>
+				<td>글로벌문화</td>
+			</tr>
+			<tr>
+				<td rowspan="3">균형<br>교양</td>
+				<td colspan="2">인간/문화의이해</td>
+				<td rowspan="3">5학기이상</td>
+				<td>30 %</td>
+				<td>30 %</td>
+				<td>35 %</td>
+				<td>5 %</td>
+			</tr>
+			<tr>
+				<td colspan="2">사회/역사의이해</td>
+				<td>30 %</td>
+				<td>30 %</td>
+				<td>35 %</td>
+				<td>5 %</td>
+			</tr>
+			<tr>
+				<td colspan="2">자연/과학/기술의이해</td>
+				<td>30 %</td>
+				<td>30 %</td>
+				<td>35 %</td>
+				<td>5 %</td>
+			</tr>
+			<tr>
+				<td rowspan="2">기초<br>영역</td>
+				<td colspan="2">기초인문사회과학</td>
+				<td rowspan="2">신입생</td>
+				<td>3 %</td>
+				<td>3 %</td>
+				<td>4 %</td>
+				<td>90 %</td>
+			</tr>
+			<tr>
+				<td colspan="2">기초자연과학</td>
+				<td>3 %</td>
+				<td>3 %</td>
+				<td>4 %</td>
+				<td>90 %</td>
+			</tr>
+			<tr>
+				<td colspan="3">일반선택</td>
+				<td>전체</td>
+				<td>25 %</td>
+				<td>25 %</td>
+				<td>25 %</td>
+				<td>25 %</td>
+			</tr>
+			</tbody></table>
+		※ 정원 잔여석은 학기별 대기순번에 따라 적절하게 분배할 계획임<br>
+		<li>
+		- 기초자연과학 영역 일부 강좌는 정원 배분이 다름: 선형대수학,공학수학1,공학수학2,이산수학<br>
+		- 의사소통/기본영어 영역 중 일부 수업(강좌) 재학생(2~4학년) 우선 신청반 개설(추후 추가 가능함)<br>
+		- 소프트웨어기초 일부 수업(강좌) 재학생 수강 T/O 운영 예정<br>
+		- 일반선택 영역의 경우 과목별로 지정된 이수학년에 따라 균등 배분함<br>
+		- 일반선택 영역 중 일부 교과목과 의사소통영역 고급과목은 수강정원 배분이 다름<br>
+		- 1학년 신입생의 경우 기본영어, 소프트웨어기초, FYE세미나(대계열학생)이 직권배정되며,<br>
+		&nbsp;&nbsp;배정된 분반을 직접 삭제할 경우 재배정 불가<br><br>
+		</li>
+		<li><b>1학기 온라인수업 출석시험 일정(예정)</b><br>
+		- 중간시험 : 2019.4.20.(토) ~ 21.(일)<br>
+		- 기말시험 : 2019.6.15.(토) ~ 16.(일)<br>
+		※ 온라인수업 중간/기말시험 세부진행계획은 시험 3~4주전 아이캠퍼스 게시판을 통하여 공지 예정<br><br>
+		</li>
+	</ul>
+	</td>
+</tr>
+<tr>
+	<td height="70">&nbsp;</td>
+</tr>
+</tbody></table>
+        </div>
+    </div>
+    <footer>
+    	<div class="footer_inside">
+        	<span>COPYRIGHT ⓒ 2015 SUNGKYUNKWAN UNIVERSITY ALL RIGHTS RESERVED. &nbsp; &nbsp; &nbsp;* 크롬, 파이어폭스, 사파리, 익스플로러7.0 이상 브라우저에 최적화 되있습니다.</span>
+
+        </div>
+    </footer>
+
+
+</div></body></html>
