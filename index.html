@@ -7,9 +7,9 @@
 	<link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../css/themes/default/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="../_assets/css/jqm-demos.css">
+	<
 	<script src="../js/jquery.js"></script>
-	<script src="../_assets/js/index.js"></script>
+
 	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
 	<style id="inset-tablist">
 		.tablist-left {
@@ -29,22 +29,27 @@
 			<div data-role="tabs" id="tabs">
 		      <div data-role="navbar">
 			    <ul>
-						<li><a href="login.html" data-ajax="false">主页</a></li>
+						<li><a href="login.html" data-ajax="false">选课</a></li>
 						<li><a href="#cn" data-ajax="false">校历（中文）</a></li>
 						<li><a href="#kr" data-ajax="false">校历（韩文）</a></li>
 						<li><a href="#bot" data-ajax="false">Kingo Bot</a></li>
+						<li><a href="#onedrive" data-ajax="false">下载</a></li>
  						<li><a href="#two" data-ajax="false">引用</a></li>
 			    </ul>
 		      </div>
-					<div id="bot" class="ui-body-d ui-content">
+					<div id="bot" data-role="main" class="ui-body-d ui-content">
 		   <iframe src="https://kingo.skku.edu/chat" width="100%" height="1080"></iframe>
 		      </div>
-					<div id="kr" class="ui-body-d ui-content">
+					<div id="onedrive" data-role="main" class="ui-body-d ui-content">
+		   <iframe src="https://x1x.ink" width="100%" height="1080"></iframe>
+		      </div>
+					<div id="kr" data-role="main" width="100%" class="ui-body-d ui-content">
 			   <iframe src="pdf\sche2019.pdf" width="100%" height="1080"></iframe>
 		      </div>
-		      <div id="cn" class="ui-body-d ui-content">
-		        <img src="img/cn1.jpg" alt="">
-						 <img src="img/cn2.jpg" alt="">
+		      <div id="cn" data-role="main" class="ui-body-d ui-content">
+
+		        <img src="img/cn1.jpg" width="100%" alt="">
+						 <img src="img/cn2.jpg" width="100%" alt="">
 		      </div>
 		      <div id="two">
 		        <ul data-role="listview" data-inset="true">
@@ -54,9 +59,7 @@
 		            <li><a href="#bot">SKKU</a></li>
 		            <li><a href="#bot">SKKU</a></li>
 		        </ul>
-						<div id="main" class="ui-body-d ui-content">
 
-						</div>
 		    </div>
 		</div>
 
